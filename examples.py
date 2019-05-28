@@ -507,7 +507,7 @@ if __name__ == '__main__':
 
     game = args.game
 
-    eval(args.rl_algorithm)(game = game)
+    eval(args.rl_algo)(game = game)
 
     # select_device(0)
 
