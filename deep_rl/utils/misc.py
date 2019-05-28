@@ -84,7 +84,7 @@ def generate_tag(params):
     del params['game']
     del params['run']
     str = ['%s_%s' % (k, v) for k, v in sorted(params.items())]
-    tag = '%s-%s-%s-run-%d' % (game, rl_algo, '-'.join(str), run)
+    tag = '%s-%s-run-%d' % (game, '-'.join(str), run)
     params['tag'] = tag
     params['game'] = game
     params['run'] = run
