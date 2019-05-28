@@ -52,7 +52,7 @@ class Config:
         self.sgd_update_frequency = None
         self.random_action_prob = None
         self.__eval_env = None
-        self.log_interval = int(1e3)
+        self.log_interval = int(1e4)
         self.save_interval = 0
         self.eval_interval = 0
         self.eval_episodes = 10

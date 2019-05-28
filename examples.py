@@ -403,7 +403,7 @@ def ppo_pixel(**kwargs):
     config.optimization_epochs = 3
     config.mini_batch_size = 32 * 8
     config.ppo_ratio_clip = 0.1
-    config.log_interval = 128 * 8
+    # config.log_interval = 128 * 8
     config.max_steps = int(2e8)
     run_steps(PPOAgent(config))
 
