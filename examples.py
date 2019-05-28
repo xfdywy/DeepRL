@@ -68,7 +68,7 @@ def dqn_pixel(**kwargs):
     config.history_length = 4
     # config.double_q = True
     config.double_q = False
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(DQNAgent(config))
 
 
@@ -125,7 +125,7 @@ def quantile_regression_dqn_pixel(**kwargs):
     config.sgd_update_frequency = 4
     config.gradient_clip = 5
     config.num_quantiles = 200
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(QuantileRegressionDQNAgent(config))
 
 
@@ -186,7 +186,7 @@ def categorical_dqn_pixel(**kwargs):
     config.categorical_n_atoms = 51
     config.sgd_update_frequency = 4
     config.gradient_clip = 0.5
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(CategoricalDQNAgent(config))
 
 
@@ -234,7 +234,7 @@ def a2c_pixel(**kwargs):
     config.entropy_weight = 0.01
     config.rollout_length = 5
     config.gradient_clip = 5
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(A2CAgent(config))
 
 
@@ -258,7 +258,7 @@ def a2c_continuous(**kwargs):
     config.entropy_weight = 0.01
     config.rollout_length = 5
     config.gradient_clip = 5
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(A2CAgent(config))
 
 
@@ -302,7 +302,7 @@ def n_step_dqn_pixel(**kwargs):
     config.target_network_update_freq = 10000
     config.rollout_length = 5
     config.gradient_clip = 5
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(NStepDQNAgent(config))
 
 
@@ -348,7 +348,7 @@ def option_critic_pixel(**kwargs):
     config.target_network_update_freq = 10000
     config.rollout_length = 5
     config.gradient_clip = 5
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     config.entropy_weight = 0.01
     config.termination_regularizer = 0.01
     run_steps(OptionCriticAgent(config))
@@ -404,7 +404,7 @@ def ppo_pixel(**kwargs):
     config.mini_batch_size = 32 * 8
     config.ppo_ratio_clip = 0.1
     config.log_interval = 128 * 8
-    config.max_steps = int(2e7)
+    config.max_steps = int(2e8)
     run_steps(PPOAgent(config))
 
 
