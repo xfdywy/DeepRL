@@ -13,6 +13,7 @@ def dqn_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -42,6 +43,7 @@ def dqn_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -76,6 +78,7 @@ def quantile_regression_dqn_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -102,6 +105,7 @@ def quantile_regression_dqn_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -131,6 +135,7 @@ def categorical_dqn_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -160,6 +165,7 @@ def categorical_dqn_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -190,6 +196,7 @@ def a2c_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.num_workers = 5
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
@@ -211,6 +218,7 @@ def a2c_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
     config.log_name = args.log_name
 
     config.num_workers = 16
@@ -235,6 +243,7 @@ def a2c_continuous(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.num_workers = 16
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
@@ -259,6 +268,7 @@ def n_step_dqn_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
     config.eval_env = Task(config.game)
@@ -278,6 +288,7 @@ def n_step_dqn_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
     config.eval_env = Task(config.game)
@@ -301,6 +312,7 @@ def option_critic_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.num_workers = 5
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
@@ -322,6 +334,7 @@ def option_critic_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
     config.eval_env = Task(config.game)
@@ -347,6 +360,7 @@ def ppo_feature(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.num_workers = 5
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
@@ -371,6 +385,7 @@ def ppo_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
     config.eval_env = Task(config.game)
@@ -398,6 +413,7 @@ def ppo_continuous(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
@@ -426,6 +442,7 @@ def ddpg_continuous(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.task_fn = lambda: Task(config.game)
     config.eval_env = config.task_fn()
