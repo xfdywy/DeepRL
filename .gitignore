@@ -98,3 +98,10 @@ images_data
 mjkey.txt
 .DS_Store
 tf_log
+
+
+inner_run_bash/
+!.gitkeep
+*.tar.gz
+
+
