@@ -65,10 +65,10 @@ class BaseAgent:
             ret = info['episodic_return']
             if ret is not None:
                 self.tmp_online_record_count += 1
-                if self.tmp_online_record_count % 100 == 0:
+                if self.tmp_online_record_count % 20 == 0:
                     print(self.tmp_online_record_count)
-                self.logger.add_scalar('episodic_return_train', ret, self.total_steps + offset)
-                self.logger.info('steps %d, episodic_return_train %s' % (self.total_steps + offset, ret))
+                    self.logger.add_scalar('episodic_return_train', ret, self.total_steps + offset)
+                    self.logger.info('steps %d, episodic_return_train %s' % (self.total_steps + offset, ret))
         elif isinstance(info, tuple):
             for i, info_ in enumerate(info):
                 self.record_online_return(info_, i)
