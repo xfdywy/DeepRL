@@ -211,6 +211,7 @@ def a2c_pixel(**kwargs):
     kwargs.setdefault('log_level', 0)
     config = Config()
     config.merge(kwargs)
+    config.log_name = args.log_name
 
     config.num_workers = 16
     config.task_fn = lambda: Task(config.game, num_envs=config.num_workers)
@@ -450,14 +451,50 @@ def ddpg_continuous(**kwargs):
 
 
 if __name__ == '__main__':
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--game', type=str, default='PongNoFrameskip-v4')
+    parser.add_argument('--rl_algorithm', type=str, default='dqn_pixel')
+    parser.add_argument('--log_name', type=str, default=None)
+    # parser.add_argument('--cuda', type=int, default=-1)
+    # parser.add_argument('--lr', type=float, default=0.00005)
+    # parser.add_argument('--max_grad_norm', type=float, default=5)
+    # parser.add_argument('--adam_eps', type=float, default=0.01/32)
+    # parser.add_argument('--adam_betas', type=float, nargs='+', default=[0.9, 0.999])
+    # parser.add_argument('--qn', type=int, default=200)
+
+    # parser.add_argument('--lr', type=float, default=0.00005)
+    # parser.add_argument('--log_name', type=str, default=None)
+    # parser.add_argument('--opt', type=str, default='gsgd_adam')
+    # parser.add_argument('--inner_opt', type=str, default='adam')
+    # parser.add_argument('--ec_opt', type=str, default='ec')
+    # parser.add_argument('--ec_layer_type', type=int, default=2)
+    # parser.add_argument('--ec_adam_method', type=str, default='noweight')
+    # parser.add_argument('--ec_rmsprop_method', type=str, default='noweight')
+
+    # parser.add_argument('--device', type=int, default='noweight')
+    args = parser.parse_args()
+    args.device = args.cuda if args.cuda >=  0 else  'cpu'
+
+
+
+
+
     mkdir('log')
     mkdir('tf_log')
     set_one_thread()
     random_seed()
-    select_device(-1)
+    select_device(0)
+    # select_device(-1)
+
+    game = args.game
+
+    eval(args.rl_algorithm)(game = game)
+
     # select_device(0)
 
-    game = 'CartPole-v0'
+    # game = 'CartPole-v0'
     # dqn_feature(game=game)
     # quantile_regression_dqn_feature(game=game)
     # categorical_dqn_feature(game=game)
@@ -466,12 +503,12 @@ if __name__ == '__main__':
     # option_critic_feature(game=game)
     # ppo_feature(game=game)
 
-    game = 'HalfCheetah-v2'
+    # game = 'HalfCheetah-v2'
     # a2c_continuous(game=game)
     # ppo_continuous(game=game)
     # ddpg_continuous(game=game)
 
-    game = 'BreakoutNoFrameskip-v4'
+    # game = 'BreakoutNoFrameskip-v4'
     # dqn_pixel(game=game)
     # quantile_regression_dqn_pixel(game=game)
     # categorical_dqn_pixel(game=game)

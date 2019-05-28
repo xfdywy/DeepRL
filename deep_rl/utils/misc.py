@@ -12,6 +12,7 @@ import torch
 import time
 from .torch_utils import *
 from pathlib import Path
+from datetime import datetime,timezone,timedelta
 
 
 def run_steps(agent):
@@ -33,8 +34,21 @@ def run_steps(agent):
         agent.switch_task()
 
 
+# def get_time_str():
+#     return datetime.datetime.now().strftime("%y%m%d-%H%M%S")
+
+
+
 def get_time_str():
-    return datetime.datetime.now().strftime("%y%m%d-%H%M%S")
+    dt = datetime.utcnow()
+    dt = dt.replace(tzinfo=timezone.utc)
+    tzutc_8 = timezone(timedelta(hours=8))
+    local_dt = dt.astimezone(tzutc_8)
+
+    local_dt = local_dt.strftime("%y%m%d-%H%M%S")
+    return  local_dt
+
+
 
 
 def get_default_log_dir(name):
