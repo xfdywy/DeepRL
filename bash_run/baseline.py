@@ -23,7 +23,7 @@ def genreate(
 
 
 
-     CUDA_VISIBLE_DEVICES={cuda}  python examples.py --rl_alog {rl_algo} --cuda 0 --game {game}  --log_name {idx} &
+     CUDA_VISIBLE_DEVICES={cuda}  python examples.py --rl_algo {rl_algo} --cuda 0 --game {game}  --log_name {idx} &
      sleep 1s
 
 
