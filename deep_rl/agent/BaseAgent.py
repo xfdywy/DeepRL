@@ -62,7 +62,7 @@ class BaseAgent:
 
     def record_online_return(self, info, offset=0):
         self.tmp_online_record_count += 1
-
+        print(self.tmp_online_record_count)
         if self.tmp_online_record_count % 10 ==0:
 
 
