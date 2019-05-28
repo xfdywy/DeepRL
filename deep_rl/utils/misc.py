@@ -78,12 +78,13 @@ def generate_tag(params):
     if 'tag' in params.keys():
         return
     game = params['game']
+    rl_algo = params['rl_algo']
     params.setdefault('run', 0)
     run = params['run']
     del params['game']
     del params['run']
     str = ['%s_%s' % (k, v) for k, v in sorted(params.items())]
-    tag = '%s-%s-run-%d' % (game, '-'.join(str), run)
+    tag = '%s-%s-%s-run-%d' % (game, rl_algo, '-'.join(str), run)
     params['tag'] = tag
     params['game'] = game
     params['run'] = run

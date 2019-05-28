@@ -472,9 +472,9 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--game', type=str, default='PongNoFrameskip-v4')
-    parser.add_argument('--rl_algorithm', type=str, default='dqn_pixel')
+    parser.add_argument('--rl_algo', type=str, default='dqn_pixel')
     parser.add_argument('--log_name', type=str, default=None)
-    parser.add_argument('--cuda', type=int, default=-1)
+    parser.add_argument('--cuda', type=int, default=0)
     # parser.add_argument('--lr', type=float, default=0.00005)
     # parser.add_argument('--max_grad_norm', type=float, default=5)
     # parser.add_argument('--adam_eps', type=float, default=0.01/32)
