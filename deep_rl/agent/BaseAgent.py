@@ -61,24 +61,20 @@ class BaseAgent:
         }
 
     def record_online_return(self, info, offset=0):
-        self.tmp_online_record_count += 1
-
-        if self.tmp_online_record_count % 10 ==0:
-            print(self.tmp_online_record_count)
-
-            if isinstance(info, dict):
-                ret = info['episodic_return']
-                if ret is not None:
-                    print( '!!!!!!!!!!!!!')
-                    self.logger.add_scalar('episodic_return_train', ret, self.total_steps + offset)
-                    self.logger.info('steps %d, episodic_return_train %s' % (self.total_steps + offset, ret))
-            elif isinstance(info, tuple):
-                for i, info_ in enumerate(info):
-                    self.record_online_return(info_, i)
-            else:
-                raise NotImplementedError
+        if isinstance(info, dict):
+            ret = info['episodic_return']
+            if ret is not None:
+                self.tmp_online_record_count += 1
+                if self.tmp_online_record_count % 10 == 0:
+                    print(self.tmp_online_record_count)
+                self.logger.add_scalar('episodic_return_train', ret, self.total_steps + offset)
+                self.logger.info('steps %d, episodic_return_train %s' % (self.total_steps + offset, ret))
+        elif isinstance(info, tuple):
+            for i, info_ in enumerate(info):
+                self.record_online_return(info_, i)
         else:
-            pass
+            raise NotImplementedError
+
 
     def switch_task(self):
         config = self.config
